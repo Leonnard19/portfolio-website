@@ -8,7 +8,7 @@ export const EmailSection = () => {
   return (
     <section id="contact" className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
       {/* purple globe */}
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-[66%] -left-4 transform -translate-x-1/2 -translate-1/2" />
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-[66%] -left-4 transform -translate-x-1/2 -translate-1/2" />
       <div className="mb-4 z-10">
         <h5 className="text-xl font-bold text-white my-2">Let's Connect</h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
@@ -31,7 +31,7 @@ export const EmailSection = () => {
               Your Email
             </label>
             <input
-              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 focus:border-purple-500 outline-none"
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 focus:border-primary-500 outline-none"
               type="email"
               id="email "
               placeholder="darthvader@email.com"
@@ -47,7 +47,7 @@ export const EmailSection = () => {
               type="text"
               id="subject"
               required
-              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 focus:border-purple-500 outline-none"
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 focus:border-primary-500 outline-none"
               placeholder="Just saying hi"
             />
           </div>
@@ -58,13 +58,13 @@ export const EmailSection = () => {
             <textarea
               name="message"
               id="message"
-              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 focus:border-purple-500 outline-none"
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 focus:border-primary-500 outline-none"
               placeholder="Let's talk about..."
             />
           </div>
           <button
             type="submit"
-            className=" bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-purple-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+            className=" bg-gradient-to-br from-secondary-500 via-primary-500 to-tertiary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
           >
             Send Message
           </button>
