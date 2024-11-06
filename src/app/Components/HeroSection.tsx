@@ -63,7 +63,6 @@ export const HeroSection = () => {
               src="/images/avatar.png"
               width={300}
               height={300}
-              style={{ width: 'auto', height: 'auto' }}
             />
           </div>
         </motion.div>
