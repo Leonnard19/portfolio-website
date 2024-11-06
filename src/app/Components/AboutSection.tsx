@@ -31,7 +31,7 @@ export const AboutSection = () => {
       title: 'Skills',
       id: 'skills',
       content: (
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-2">
           <ul className="list-disc pl-2">
             {SKILLS.slice(0, 5).map((skill, index) => (
               <li key={index}>{skill}</li>
@@ -99,7 +99,7 @@ export const AboutSection = () => {
             knowledge and skills. I thrive in collaborative environments and am eager to
             partner with others to develop outstanding applications.
           </p>
-          <div className="flex flex-row justify-start mt-8">
+          <div className="flex flex-row max-[400px]:flex-wrap max-[400px]:gap-y-2 justify-start mt-8 space-x-3">
             <TabButton
               selectTab={() => handleTabChange('skills')}
               active={tab === 'skills'}
