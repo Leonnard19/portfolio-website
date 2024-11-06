@@ -60,9 +60,10 @@ export const HeroSection = () => {
             <Image
               alt="avatar image"
               className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              src="/images/avatar.PNG"
+              src="/images/avatar.png"
               width={300}
               height={300}
+              style={{ width: 'auto', height: 'auto' }}
             />
           </div>
         </motion.div>
