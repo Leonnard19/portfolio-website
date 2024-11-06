@@ -58,7 +58,7 @@ const projectsData = [
     image: '/images/projects/pokedesk.png',
     tag: ['All', 'Mobile'],
     gitUrl: 'https://github.com/Leonnard19/Pokedesk',
-    previewUrl: 'https://pokedesk.vercel.app/teams',
+    previewUrl: 'https://pokedesk.vercel.app/',
   },
   {
     id: 7,
