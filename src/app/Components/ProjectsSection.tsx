@@ -55,7 +55,7 @@ const projectsData = [
   {
     id: 6,
     title: 'Pokedesk',
-    description: 'Authentication and CRUD operations',
+    description: 'Pokemon team builder app',
     image: '/images/projects/pokedesk.png',
     tag: ['All', 'Mobile'],
     gitUrl: 'https://github.com/Leonnard19/Pokedesk',
