@@ -19,7 +19,7 @@ export const NavBar = () => {
     <nav className="fixed mx-auto border border-x-transparent border-t-transparent border-b-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-90">
       <div className="flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/" className="text-2xl md:text-5xl text-white font-semibold">
-          <Image src={'/images/logo.png'} alt="logo" width={50} height={50} />
+          <Image src={'/images/logo.PNG'} alt="logo" width={50} height={50} />
         </Link>
         <div className="mobile-menu block md:hidden">
           {!navBarOpen ? (
