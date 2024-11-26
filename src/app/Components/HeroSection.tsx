@@ -47,7 +47,9 @@ export const HeroSection = () => {
               Hire me
             </Link>
             <Link
-              href="/"
+              href="files/resume_pt.pdf"
+              download="Leonardo_Santos_CV.pdf"
+              target="_blank"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-secondary-500 via-primary-500 to-tertiary-500 hover:bg-slate-800 text-white mt-3"
             >
               {/* TODO: implement this feature */}
