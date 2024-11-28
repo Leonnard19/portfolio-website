@@ -37,7 +37,7 @@ export const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Transformando ideias em experiências digitais interativas.
+            Transforming ideas into interactive digital experiences.
           </p>
           <div className="space-y-2">
             <Link
