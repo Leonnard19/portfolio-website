@@ -1,10 +1,5 @@
-import { AboutSection } from './Components/AboutSection';
-import AchievementsSection from './Components/AchievementsSection';
-import { EmailSection } from './Components/EmailSection';
-import { Footer } from './Components/Footer';
-import { HeroSection } from './Components/HeroSection';
-import { NavBar } from './Components/NavBar';
-import { ProjectsSection } from './Components/ProjectsSection';
+import { AboutSection, EmailSection, HeroSection, ProjectsSection } from './Components';
+import { Footer, NavBar } from './Layouts';
 
 export default function Home() {
   return (
