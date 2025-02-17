@@ -1,0 +1,112 @@
+{
+  "Navbar": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "Language": {
+    "portuguese": "Português",
+    "english": "Inglês"
+  },
+  "Website": {
+    "title": "Portfólio de Leonardo",
+    "intro": "Transformando ideias em experiências digitais interativas.",
+    "hireMe": "Me contrate",
+    "downloadCV": "Baixar CV"
+  },
+  "DynamicText": {
+    "Hello": "Olá, sou",
+    "Me": "Leonardo!",
+    "webDeveloper": "Desenvolvedor Web",
+    "UIUXDesigner": "Designer UI/UX",
+    "codeInnovator": "Inovador em Código"
+  },
+  "About": {
+    "title": "Sobre Mim",
+    "description": "Sou um desenvolvedor full-stack dedicado a criar aplicações web envolventes e responsivas. Minha experiência inclui TypeScript, React.js, Redux, Node.js, Express, HTML, CSS, Tailwind e Git. Como um aprendiz rápido, busco constantemente aprimorar meus conhecimentos e habilidades. Gosto de trabalhar em equipe e estou sempre disposto a colaborar no desenvolvimento de aplicações excepcionais.",
+    "skills": "Habilidades",
+    "education": {
+      "title": "Educação",
+      "degree": "Análise e Desenvolvimento de Sistemas | 2019–2020",
+      "university": "Faculdade de Informática e Administração Paulista (FIAP)"
+    },
+    "experience": {
+      "title": "Experiência",
+      "jobs": [
+        {
+          "title": "Desenvolvedor React - IBTI | Dezembro 2021 - Outubro 2024",
+          "description": "Desenvolvimento de UI para software de automação de robôs."
+        },
+        {
+          "title": "Assistente de TI - Flow Reembolsos | 2021 (7 meses)",
+          "description": "Criação e manutenção de automações em software CRM."
+        }
+      ]
+    },
+    "certifications": {
+      "title": "Certificações",
+      "items": [
+        {
+          "title": "Bootcamp Node.js Ignite - Rocketseat | Mar/2021 - Abr/2021",
+          "description": "Node.js, Express, AWS, Docker e NestJS."
+        },
+        {
+          "title": "Bootcamp React.Js Ignite - Rocketseat | Mai/2021 - Jun/2021",
+          "description": "React, Typescipt, Tailwind e Next.js."
+        }
+      ]
+    }
+  },
+  "Projects": {
+    "title": "Meus Projetos",
+    "categories": {
+      "all": "Todos",
+      "web": "Web",
+      "mobile": "Mobile"
+    },
+    "reactPortfolio": {
+      "title": "Portfólio React",
+      "description": "Website de portfólio desenvolvido com React, TypeScript e Tailwind CSS."
+    },
+    "beTheHero": {
+      "title": "Be The Hero",
+      "description": "Aplicação para ONGs desenvolvida com Node.js, React e React Native."
+    },
+    "ecoleta": {
+      "title": "E-Coleta",
+      "description": "Marketplace que ajuda as pessoas a encontrarem pontos de coleta de resíduos de forma eficiente."
+    },
+    "ignews": {
+      "title": "Ignews",
+      "description": "Blog com sistema de assinatura."
+    },
+    "dtMoney": {
+      "title": "Dt Money",
+      "description": "Aplicação de controle financeiro."
+    },
+    "pokedesk": {
+      "title": "Pokedesk",
+      "description": "Aplicação para construção de times de Pokémon."
+    },
+    "doomFire": {
+      "title": "Doom Fire",
+      "description": "Efeito de fogo do Doom em JavaScript."
+    }
+  },
+  "Contact": {
+    "title": "Vamos Conectar",
+    "description": "Atualmente estou em busca de novas oportunidades, minha caixa de entrada está sempre aberta. Seja para tirar uma dúvida ou apenas dizer oi, farei o possível para responder!",
+    "email": "Seu Email",
+    "subject": "Assunto",
+    "message": "Mensagem",
+    "send": "Enviar Mensagem",
+    "placeholder": {
+      "email": "email@exemplo.com",
+      "subject": "Passando pra dar oi!",
+      "message": "Vamos falar sobre..."
+    }
+  },
+  "Footer": {
+    "rights": "Todos os direitos reservados."
+  }
+}

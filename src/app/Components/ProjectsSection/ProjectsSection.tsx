@@ -4,84 +4,87 @@ import { ProjectCard } from './ProjectCard/ProjectCard';
 import { ProjectTag } from './ProjectTag/ProjectTag';
 import { ProjectTagType } from '@/types';
 import { motion, useInView } from 'framer-motion';
-
-const projectsData = [
-  {
-    id: 1,
-    title: 'React Portfolio Website',
-    description: 'Portfolio website built with React, Typescript and Tailwind CSS',
-    image: '/images/projects/portfolio-web.jpg',
-    tag: ['All', 'Web', 'Mobile'],
-    gitUrl: 'https://github.com/Leonnard19/portfolio-website',
-    previewUrl: '/',
-  },
-  {
-    id: 2,
-    title: 'Be The Hero',
-    description: 'NGOs App development using Node.JS, React and React Native.',
-    image: '/images/projects/bethehero.png',
-    tag: ['All', 'Web', 'Mobile'],
-    gitUrl: 'https://github.com/Leonnard19/OmniStack11Project',
-    previewUrl: '/',
-  },
-  {
-    id: 3,
-    title: 'E-Coleta',
-    description:
-      'Ecoleta is a marketplace that helps people find waste collection points efficiently.',
-    image: '/images/projects/ecoleta.png',
-    tag: ['All', 'Web', 'Mobile'],
-    gitUrl: 'https://github.com/Leonnard19/NextLevelWeek1.0',
-    previewUrl: '/',
-  },
-  {
-    id: 4,
-    title: 'Ignews',
-    description: 'Blog with subscription system.',
-    image: '/images/projects/ignews.png',
-    tag: ['All', 'Web'],
-    gitUrl: 'https://github.com/Leonnard19/ignews',
-    previewUrl: '/',
-  },
-  {
-    id: 5,
-    title: 'Dt Money',
-    description: 'Financial transactions app',
-    image: '/images/projects/dtmoney.png',
-    tag: ['All', 'Web'],
-    gitUrl: 'https://github.com/Leonnard19/dtmoney',
-    previewUrl: '/',
-  },
-  {
-    id: 6,
-    title: 'Pokedesk',
-    description: 'Pokemon team builder app',
-    image: '/images/projects/pokedesk.png',
-    tag: ['All', 'Mobile'],
-    gitUrl: 'https://github.com/Leonnard19/Pokedesk',
-    previewUrl: 'https://pokedesk.vercel.app/',
-  },
-  {
-    id: 7,
-    title: 'Doom Fire',
-    description: 'Doom Fire Effect in JavaScript',
-    image: '/images/projects/doomfire.gif',
-    tag: ['All'],
-    gitUrl: 'https://github.com/Leonnard19/doomfire',
-    previewUrl: '/',
-  },
-];
+import { useTranslations } from 'next-intl';
 
 export const ProjectsSection = () => {
-  const [tag, setTag] = useState<ProjectTagType>('All');
+  const [selectedTag, setSelectedTag] = useState<ProjectTagType>('All');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const t = useTranslations('Projects');
+
+  const TAGS = ['All', 'Web', 'Mobile'] as ProjectTagType[];
+
+  const projectsData = [
+    {
+      id: 1,
+      title: t('reactPortfolio.title'),
+      description: t('reactPortfolio.description'),
+      image: '/images/projects/portfolio-web.jpg',
+      tag: ['All', 'Web', 'Mobile'],
+      gitUrl: 'https://github.com/Leonnard19/portfolio-website',
+      previewUrl: '/',
+    },
+    {
+      id: 2,
+      title: t('beTheHero.title'),
+      description: t('beTheHero.description'),
+      image: '/images/projects/bethehero.png',
+      tag: ['All', 'Web', 'Mobile'],
+      gitUrl: 'https://github.com/Leonnard19/OmniStack11Project',
+      previewUrl: '/',
+    },
+    {
+      id: 3,
+      title: t('ecoleta.title'),
+      description: t('ecoleta.description'),
+      image: '/images/projects/ecoleta.png',
+      tag: ['All', 'Web', 'Mobile'],
+      gitUrl: 'https://github.com/Leonnard19/NextLevelWeek1.0',
+      previewUrl: '/',
+    },
+    {
+      id: 4,
+      title: t('ignews.title'),
+      description: t('ignews.description'),
+      image: '/images/projects/ignews.png',
+      tag: ['All', 'Web'],
+      gitUrl: 'https://github.com/Leonnard19/ignews',
+      previewUrl: '/',
+    },
+    {
+      id: 5,
+      title: t('dtMoney.title'),
+      description: t('dtMoney.description'),
+      image: '/images/projects/dtmoney.png',
+      tag: ['All', 'Web'],
+      gitUrl: 'https://github.com/Leonnard19/dtmoney',
+      previewUrl: '/',
+    },
+    {
+      id: 6,
+      title: t('pokedesk.title'),
+      description: t('pokedesk.description'),
+      image: '/images/projects/pokedesk.png',
+      tag: ['All', 'Mobile'],
+      gitUrl: 'https://github.com/Leonnard19/Pokedesk',
+      previewUrl: 'https://pokedesk.vercel.app/',
+    },
+    {
+      id: 7,
+      title: t('doomFire.title'),
+      description: t('doomFire.description'),
+      image: '/images/projects/doomfire.gif',
+      tag: ['All'],
+      gitUrl: 'https://github.com/Leonnard19/doomfire',
+      previewUrl: '/',
+    },
+  ];
 
   const handleTagChange = (newTag: ProjectTagType) => {
-    setTag(newTag);
+    setSelectedTag(newTag);
   };
 
-  const filteredProjects = projectsData.filter(project => project.tag.includes(tag));
+  const filteredProjects = projectsData.filter(project => project.tag.includes(selectedTag));
 
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
@@ -91,12 +94,18 @@ export const ProjectsSection = () => {
   return (
     <section id="projects">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
+        {t('title')}
       </h2>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag onClick={handleTagChange} tag="All" isSelected={tag === 'All'} />
-        <ProjectTag onClick={handleTagChange} tag="Web" isSelected={tag === 'Web'} />
-        <ProjectTag onClick={handleTagChange} tag="Mobile" isSelected={tag === 'Mobile'} />
+        {TAGS.map((tag, index) => (
+          <ProjectTag
+            key={index}
+            label={t(`categories.${tag.toLowerCase()}`)}
+            onClick={handleTagChange}
+            tag={tag}
+            isSelected={tag === selectedTag}
+          />
+        ))}
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects.map((project, index) => (

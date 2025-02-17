@@ -1,5 +1,5 @@
 export type LanguageType = {
-  name: 'English' | 'Portuguese';
-  value: 'en' | 'pt';
+  name: string;
+  value: 'en' | 'pt-BR';
   icon_path: string;
 };

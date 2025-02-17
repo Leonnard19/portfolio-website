@@ -1,43 +1,30 @@
 'use client';
 import { useOnClickOutside } from '@/app/useOnClickOutside';
 import { LanguageType } from '@/types';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/16/solid';
+import { ChevronDownIcon } from '@heroicons/react/16/solid';
 import Image from 'next/image';
-import { useEffect, useMemo, useRef, useState } from 'react';
-
-import {
-  updateLanguage,
-  useLanguage,
-  // useLanguageCookies,
-} from '@/app/context/useLanguage';
-
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { setLanguage } from '@/app/i18n/actions';
-import { LanguageHook } from './LanguageHook';
+import { ChangeEvent, useMemo, useRef, useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 
 export const LanguageSelect = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const selectedLanguage = useLanguage(state => state.lang);
-  // const { lang, updateLanguage } = useLanguageCookies();
-  const { language, changeLanguage } = LanguageHook();
-  
-  const selectedLanguage = useLanguage(state => state.lang);
+
+  const t = useTranslations('Language');
+
   const ref = useRef<HTMLDivElement>(null);
-
-  // const router = useRouter();
-
-  // console.log('locale:', router);
-
-
-   console.log('Language:', language);
+  const router = useRouter();
+  const locale = useLocale();
+  const pathname = usePathname();
 
   const languageOptions: LanguageType[] = useMemo(() => {
     return [
-      { name: 'Portuguese', value: 'pt', icon_path: '/icons/brazil_icon.svg' },
-      { name: 'English', value: 'en', icon_path: '/icons/us_icon.svg' },
+      { name: t('portuguese'), value: 'pt-BR', icon_path: '/icons/brazil_icon.svg' },
+      { name: t('english'), value: 'en', icon_path: '/icons/us_icon.svg' },
     ];
-  }, []);
+  }, [t]);
+
+  const selectedLanguage = languageOptions.find(option => option.value === locale);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -47,65 +34,64 @@ export const LanguageSelect = () => {
     setIsOpen(false);
   });
 
-  // const selectedLanguage = useMemo(() => {
-  //   const stateFromCookies = getStateFromCookies();
-
-  //   return stateFromCookies
-  // }, [lang]);
-
-  // const selectedLanguage = getStateFromCookies();
-
-  // console.log('TEST:', selectedLanguage);
-
-  // if (!selectedLanguage) return null;
+  const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const newLocale = e.target.value as string;
+    const path = pathname.split('/').slice(2).join('/');
+    router.push(`/${newLocale}/${path}`);
+  };
 
   return (
     <div ref={ref} className="relative inline-block text-left">
       <div>
         <button
           onClick={toggleDropdown}
-          className="inline-flex justify-center items-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+          className="inline-flex justify-center items-center w-full py-2 px-3 border text-sm border-[#ADB7DE] rounded bg-transparent hover:text-white hover:border-white text-[#ADB7DE] focus:outline-none"
         >
           {selectedLanguage?.icon_path && (
             <Image
               src={selectedLanguage.icon_path}
               alt="icon"
-              width={15}
-              height={15}
-              className="mr-2"
+              width={0}
+              height={0}
+              className="w-4 h-auto mr-2"
             />
           )}
           {selectedLanguage?.name}
-          {isOpen ? (
-            <ChevronUpIcon className="w-5 h-5" />
-          ) : (
-            <ChevronDownIcon className="w-5 h-5" />
-          )}
+          <ChevronDownIcon
+            className={`h-5 w-5 transform duration-300 ${
+              isOpen ? '-rotate-180' : 'rotate-0'
+            }`}
+          />
         </button>
       </div>
 
       {isOpen && (
         <div
-          className="origin-top-right absolute right-0 mt-1 w-full min-w-28 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="origin-top-right absolute right-0 mt-1 w-full min-w-28 rounded-md shadow-lg bg-[#121212] ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
         >
           {languageOptions?.map((option, index) => (
             <div
-              className="flex hover:bg-gray-100 rounded-md cursor-pointer px-2"
+              className="flex hover:bg-gray-800 rounded-md cursor-pointer px-2"
               key={index}
             >
               {option.icon_path && (
-                <Image src={option.icon_path} alt="icon" width={15} height={15} />
+                <Image
+                  src={option.icon_path}
+                  alt="icon"
+                  width={0}
+                  height={0}
+                  className="w-4 h-auto"
+                />
               )}
               <div
-                className="block p-2 text-sm text-gray-700"
+                className="block p-2 text-sm text-[#ADB7DE] "
                 role="menuitem"
                 onClick={() => {
-                  // update language
-                  updateLanguage(option);
-                  // using cookies
-                  // saveStateToCookies()
-                  changeLanguage(option.value);
+                  // update language and close dropdown
+                  handleLanguageChange({
+                    target: { value: option.value },
+                  } as ChangeEvent<HTMLSelectElement>);
                   toggleDropdown();
                 }}
               >

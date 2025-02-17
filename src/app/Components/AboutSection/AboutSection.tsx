@@ -2,9 +2,11 @@
 import Image from 'next/image';
 import { useState, useTransition } from 'react';
 import { TabButton } from './TabButton';
+import { useTranslations } from 'next-intl';
 
 export const AboutSection = () => {
   const [tab, setTab] = useState('skills');
+  const t = useTranslations();
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id: string) => {
@@ -28,7 +30,7 @@ export const AboutSection = () => {
 
   const TAB_DATA = [
     {
-      title: 'Skills',
+      title: t('About.skills'),
       id: 'skills',
       content: (
         <div className="grid grid-cols-2">
@@ -46,35 +48,37 @@ export const AboutSection = () => {
       ),
     },
     {
-      title: 'Education',
+      title: t('About.education.title'),
       id: 'education',
       content: (
         <ul className="list-disc pl-2">
-          <li> Systems Analysis and Development | 2019–2020</li>
-          <li> São Paulo College of Informatics and Administration (FIAP)</li>
+          <li>{t('About.education.degree')}</li>
+          <li>{t('About.education.university')}</li>
         </ul>
       ),
     },
     {
-      title: 'Experience',
+      title: t('About.experience.title'),
       id: 'experience',
       content: (
         <ul className="list-disc pl-2">
           {/* add description later */}
-          <li> {'React Developer - IBTI | December 2021- October 2024'}</li>
+          <li>{t('About.experience.jobs.0.title')}</li>
           {/*  UI Development for robots automation software. */}
-          <li>{' IT Assistant - Flow Reembolsos | 2021 (7 months)'}</li>
+          <li>{t('About.experience.jobs.1.title')}</li>
           {/*  Creation and maintenance of automations in a CRM software. */}
         </ul>
       ),
     },
     {
-      title: 'Certifications',
+      title: t('About.certifications.title'),
       id: 'certifications',
       content: (
         <ul className="list-disc pl-2">
-          <li>Node.Js – Rocketseat Ignite Bootcamp</li>
-          <li>React.Js – Rocketseat Ignite Bootcamp</li>
+          <li>{t('About.certifications.items.0.title')}</li>
+          {/* add description later */}
+          <li>{t('About.certifications.items.1.title')}</li>
+          {/* add description later */}
         </ul>
       ),
     },
@@ -91,35 +95,17 @@ export const AboutSection = () => {
           className="rounded-lg"
         />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">
-            I am a full-stack web developer dedicated to building engaging and responsive web
-            applications. My expertise includes TypeScript, React.js, Redux, Node.js, Express,
-            HTML, CSS, Tailwind and Git. As a fast learner, I continuously seek to enhance my
-            knowledge and skills. I thrive in collaborative environments and am eager to
-            partner with others to develop outstanding applications.
-          </p>
-          <div className="flex flex-row max-[400px]:flex-wrap max-[400px]:gap-y-2 justify-start mt-8 space-x-3">
-            <TabButton
-              selectTab={() => handleTabChange('skills')}
-              active={tab === 'skills'}
-              children="Skills"
-            />
-            <TabButton
-              selectTab={() => handleTabChange('education')}
-              active={tab === 'education'}
-              children="Education"
-            />
-            <TabButton
-              selectTab={() => handleTabChange('experience')}
-              active={tab === 'experience'}
-              children="Experience"
-            />
-            <TabButton
-              selectTab={() => handleTabChange('certifications')}
-              active={tab === 'certifications'}
-              children="Certifications"
-            />
+          <h2 className="text-4xl font-bold text-white mb-4">{t('About.title')}</h2>
+          <p className="text-base lg:text-lg">{t('About.description')}</p>
+          <div className="flex flex-row max-[840px]:flex-wrap max-[840px]:gap-y-2 justify-start mt-8 space-x-3">
+            {TAB_DATA.map((tabData, index) => (
+              <TabButton
+                key={index}
+                selectTab={() => handleTabChange(tabData.id)}
+                active={tab === tabData.id}
+                children={tabData.title}
+              />
+            ))}
           </div>
           <div className="mt-6">
             {TAB_DATA.find(t => t.id === tab)?.content ?? 'No content found'}

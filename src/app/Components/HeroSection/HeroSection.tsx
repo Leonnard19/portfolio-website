@@ -4,8 +4,12 @@ import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
 
 export const HeroSection = () => {
+  const locale = useLocale();
+  const t= useTranslations();
+
   return (
     <section>
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -15,20 +19,20 @@ export const HeroSection = () => {
           transition={{ duration: 0.1 }}
           className="col-span-7 place-self-center text-center sm:text-left w-full"
         >
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
+          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold min-h-[180px] max-sm:min-h-32">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I'm{' '}
+              {t('DynamicText.Hello')}{' '}
             </span>
             <br />
             <TypeAnimation
               sequence={[
-                'Leonard',
+                t('DynamicText.Me'),
                 1000,
-                'Web Developer',
+                t('DynamicText.webDeveloper'),
                 1000,
-                'UI/UX Designer',
+                t('DynamicText.UIUXDesigner'),
                 1000,
-                'Code Innovator',
+                t('DynamicText.codeInnovator'),
                 1000,
               ]}
               wrapper="span"
@@ -36,24 +40,24 @@ export const HeroSection = () => {
               repeat={Infinity}
             />
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Transforming ideas into interactive digital experiences.
+          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 mr-1 lg:text-xl">
+            {t('Website.intro')}
           </p>
           <div className="space-y-2">
             <Link
               href="/#contact"
               className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-secondary-500 via-primary-500 to-tertiary-500 hover:bg-slate-200 text-white"
             >
-              Hire me
+              {t('Website.hireMe')}
             </Link>
             <Link
-              href="files/resume_pt.pdf"
-              download="Leonardo_Santos_CV.pdf"
+              href={`files/resume_${locale}.pdf`}
+              download={`Leonardo_Santos_CV_${locale}.pdf`}
               target="_blank"
               className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-secondary-500 via-primary-500 to-tertiary-500 hover:bg-slate-800 text-white mt-3"
             >
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                Download CV
+                {t('Website.downloadCV')}
               </span>
             </Link>
           </div>
@@ -68,10 +72,11 @@ export const HeroSection = () => {
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
             <Image
               alt="avatar image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-80 h-auto"
               src="/images/avatar.PNG"
-              width={300}
-              height={300}
+              width={0}
+              height={0}
+              sizes="100vw"
               priority
             />
           </div>

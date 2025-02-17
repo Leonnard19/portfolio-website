@@ -7,4 +7,3 @@ export * from './MenuOverlay';
 export * from './NavLink';
 export * from './ProjectsSection';
 export * from './LanguageSelect';
-export * from './LanguageSection';
