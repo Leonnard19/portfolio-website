@@ -2,13 +2,13 @@ import { getMessages } from 'next-intl/server';
 import { Footer, NavBar } from '../Layouts';
 import { AboutSection, EmailSection, HeroSection, ProjectsSection } from '../Components';
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
-  // Being treated as a Promise in a complex way
+type Params = Promise<{ locale: string }>;
+
+export async function generateMetadata({ params }: { params: Params }) {
   const { locale } = await params;
 
   const messages: any = await getMessages({ locale });
 
-  // work on this later
   const title = messages.Website.title;
 
   const icons = {

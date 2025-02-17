@@ -1,5 +1,5 @@
 import '../globals.css';
-import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider, useLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import localFont from 'next/font/local';
 
@@ -14,26 +14,23 @@ const geistMono = localFont({
   weight: '100 900',
 });
 
+type Params = Promise<{ locale: string }>;
+
 export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Params;
 }>) {
-
-  // Being treated as a Promise in a complex way
   const { locale } = await params;
 
-  // optionally using locale
-  const messages = await getMessages({locale});
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
