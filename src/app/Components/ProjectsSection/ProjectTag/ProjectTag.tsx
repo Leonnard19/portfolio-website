@@ -2,12 +2,13 @@ import { ProjectTagType } from '@/types';
 import { motion } from 'framer-motion';
 
 interface Props {
+  label: string;
   tag: ProjectTagType;
   onClick: (tag: ProjectTagType) => void;
   isSelected: boolean;
 }
 
-export const ProjectTag = ({ tag, onClick, isSelected }: Props) => {
+export const ProjectTag = ({ tag, onClick, isSelected, label }: Props) => {
   const buttonStyles = isSelected
     ? 'text-white border-primary-500'
     : 'text-[#ADB7BE] border-slate-600 hover:border-white';
@@ -18,7 +19,7 @@ export const ProjectTag = ({ tag, onClick, isSelected }: Props) => {
       className={`${buttonStyles} rounded-xl border-2 px-6 py-2 text-xl cursor-pointer`}
       onClick={() => onClick(tag)}
     >
-      {tag}
+      {label}
     </motion.button>
   );
 };

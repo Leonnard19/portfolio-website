@@ -7,7 +7,7 @@ interface EmailTemplateProps {
   message: string;
 }
 
-const title = 'Hello, Leonard.';
+const title = 'Hello, Leonard. ';
 const subtitle = 'Someone Contacted You! =)';
 
 /* TODO: Add styles here (React Email) */

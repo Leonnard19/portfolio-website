@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from './NavLink';
+import { NavLink } from '../NavLink/NavLink';
+import { LanguageSelect } from '../LanguageSelect';
 
 interface Props {
   links: { title: string; path: string }[];
@@ -13,6 +14,7 @@ export const MenuOverlay = ({ links }: Props) => {
           <NavLink href={link.path} title={link.title} key={index} />
         </li>
       ))}
+      <LanguageSelect />
     </ul>
   );
 };

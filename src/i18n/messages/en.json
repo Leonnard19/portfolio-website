@@ -1,0 +1,112 @@
+{
+  "Navbar": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "Language": {
+    "portuguese": "Portuguese",
+    "english": "English"
+  },
+  "Website": {
+    "title": "Leonard's Portfolio",
+    "intro": "Transforming ideas into interactive digital experiences.",
+    "hireMe": "Hire me",
+    "downloadCV": "Download CV"
+  },
+  "DynamicText": {
+    "Hello": "Hello, I'm",
+    "Me": "Leonard!",
+    "webDeveloper": "Web Developer",
+    "UIUXDesigner": "UI/UX Designer",
+    "codeInnovator": "Code Innovator"
+  },
+  "About": {
+    "title": "About Me",
+    "description": "I am a full-stack web developer dedicated to building engaging and responsive web applications. My expertise includes TypeScript, React.js, Redux, Node.js, Express, HTML, CSS, Tailwind, and Git. As a fast learner, I continuously seek to enhance my knowledge and skills. I thrive in collaborative environments and am eager to partner with others to develop outstanding applications.",
+    "skills": "Skills",
+    "education": {
+      "title": "Education",
+      "degree": "Systems Analysis and Development | 2019–2020",
+      "university": "São Paulo College of Informatics and Administration (FIAP)"
+    },
+    "experience": {
+      "title": "Experience",
+      "jobs": [
+        {
+          "title": "React Developer - IBTI | December 2021 - October 2024",
+          "description": "UI Development for robots automation software."
+        },
+        {
+          "title": "IT Assistant - Flow Reembolsos | 2021 (7 months)",
+          "description": "Creation and maintenance of automations in a CRM software."
+        }
+      ]
+    },
+    "certifications": {
+      "title": "Certifications",
+      "items": [
+        {
+          "title": "Node.js Ignite Bootcamp - Rocketseat | Mar/2021 - Apr/2021",
+          "description": "Node.js, Express, AWS, Docker and NestJS."
+        },
+        {
+          "title": "React.Js Ignite Bootcamp - Rocketseat | May/2021 - June/2021",
+          "description": "React, Typescipt, Tailwind and Next.js."
+        }
+      ]
+    }
+  },
+  "Projects": {
+    "title": "My Projects",
+    "categories": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile"
+    },
+    "reactPortfolio": {
+      "title": "React Portfolio Website",
+      "description": "Portfolio website built with React, TypeScript, and Tailwind CSS."
+    },
+    "beTheHero": {
+      "title": "Be The Hero",
+      "description": "NGOs app development using Node.js, React, and React Native."
+    },
+    "ecoleta": {
+      "title": "E-Coleta",
+      "description": "Ecoleta is a marketplace that helps people find waste collection points efficiently."
+    },
+    "ignews": {
+      "title": "Ignews",
+      "description": "Blog with subscription system."
+    },
+    "dtMoney": {
+      "title": "Dt Money",
+      "description": "Financial transactions app."
+    },
+    "pokedesk": {
+      "title": "Pokedesk",
+      "description": "Pokémon team builder app."
+    },
+    "doomFire": {
+      "title": "Doom Fire",
+      "description": "Doom Fire Effect in JavaScript."
+    }
+  },
+  "Contact": {
+    "title": "Let's Connect",
+    "description": "I'm currently looking for new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+    "email": "Your Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "placeholder": {
+      "email": "email@example.com",
+      "subject": "Just saying hi!",
+      "message": "Let's talk about..."
+    }
+  },
+  "Footer": {
+    "rights": "All Rights Reserved."
+  }
+}
